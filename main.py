@@ -14,7 +14,7 @@ elif 12 <= hour < 18:
 else:
     greeting ="Good Evening!"
 def greet():
-    console.WriteLine(f"Hello {greeting}, I'm Jarvis your virtual assistant")
+    console.WriteLine(f"Hello {greeting}, I'm Friday your virtual assistant")
     day = datetime.datetime.now().strftime("%A")
     console.WriteLine(f"Today is {day}")
     return console.ReadLine("How can I help you?")

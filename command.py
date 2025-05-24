@@ -74,11 +74,26 @@ def handle_command(command):
             except Exception as e:
                 console.WriteLine(f"Error opening Visual Studio Code: {e}")
         elif res == "notepad":
-            openingRes(command)
+            openingRes(res)
             try:
                 os.startfile("notepad.exe")
             except Exception as e:
                 console.WriteLine(f"Error opening Notepad: {e}")
+        elif res == "chrome":
+            openingRes(res)
+            query = console.ReadLine("what should I search for?")
+            try:
+                webbrowser.open("google.com/search?q=" + query)
+            except Exception as e:
+                console.WriteLine(f"Error opening Chrome: {e}")
+        elif res == 'youtube':
+            openingRes(res)
+            query = console.ReadLine("What do you want to watch?")
+            try:
+                webbrowser.open("youtube.com/results?search_query=" + query)
+                console.WriteLine("Opened Youtube")
+            except Exception as e:
+                console.WriteLine(f"Error opening Youtube: {e}")
         else:
             console.WriteLine(f"I don't know how to open {res}")
     elif 'send email' in command:
@@ -87,8 +102,6 @@ def handle_command(command):
         subject = console.ReadLine("What is the subject?")
         content = console.ReadLine("What should I say?")
         attachment = console.ReadLine("Do you want to attach a file?")
-
-
         try:
             if attachment == 'yes':
                 attachment = console.ReadLine("What is the path to the attachment?")
